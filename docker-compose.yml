@@ -1,0 +1,16 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: pedidosapp_sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Coti@2025
+    ports:
+      - "1434:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    restart: unless-stopped
+
+
+volumes:
+  sqlserver-data:
